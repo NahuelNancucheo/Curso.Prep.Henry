@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  let array = []; //creo variable que va a guardar la matriz.
+  for (x in objeto) { // metodo for in para iterar sobre las propiedades 'x' del objeto
+    array.push([x, objeto[x]]) //por cada iteracion pusheo la clave (x), seguido de su valor (objeto[x]) 
+  }
+  return array; // retorno el array con la matriz creada desde un objeto.
 }
 
 
@@ -18,6 +23,15 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  let objeto = {}; //creo una variable que guarde el objeto que voy a crear mas adelante.
+  for (let i = 0; i < string.length; i++) { //itero sobre el string recibido.
+    if (Object.keys(objeto).includes(string[i])) { //con objetc.keys(objeto) determino el indice con el cual voy a fijarme con el .inlcudes si el string en posicion i contiene ese caracter.
+      objeto[string[i]] = objeto[string[i]] + 1; //si es asi quiero que ese caracter se guarde y se le sume 1.
+      continue; //termino con la iteracion actual y sigo con la proxima.
+    }
+    objeto[string[i]] = 1; //en la primera iteracion en el que el objeto este vacio no se va a entrar al if pero esa letra está por lo que la añadimos al objeto como objeto[caracter] = 1.Luego cuando se itera nuevamente, y se repite ese caracter, se encuentra ya en el objeto por lo que entra al if y se ejecuta.
+  }
+  return objeto;
 }
 
 
@@ -26,6 +40,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  let mayuscula = ''; //creo un variable donde voy a guardar todos los caracteres en mayus.
+  let minuscula = ''; //hago lo mismo con la minus.
+  for (let i = 0; i < s.length; i++) { //itero sobre cada posicion del string.
+    if (s[i] === s[i].toUpperCase()) { //si el caracter en la posicion en la que estoy es igual que ella misma pero en mayus
+      mayuscula += s[i]; //lo guardo en la variable mayus
+    } else { 
+      minuscula += s[i]; //si no lo es, entonces va a la variable minus.
+    }
+  }
+  return mayuscula.concat(minuscula); //concateno (con .concat) primero la mayuscula seguido de la minuscula.
 }
 
 
