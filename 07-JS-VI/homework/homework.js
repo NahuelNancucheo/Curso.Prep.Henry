@@ -52,6 +52,12 @@ function map(array, cb) {
   });
   return newArray;
 }
+//Lo que hace por "detras" el .map
+// var nuevoArray = [];
+  // for(var i = 0; i < array.length; i++) {
+  //   nuevoArray.push(cb(array[i]));
+  //   nuevoArray[i] = cb(array[i]);
+  // }
 
 function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
